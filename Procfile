@@ -1,0 +1,1 @@
+web: gunicorn SimplexWebApp_Project.wsgi

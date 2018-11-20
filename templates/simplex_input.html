@@ -1,0 +1,247 @@
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+	p{
+		text-align: center; 
+	}
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
+</style>	
+
+</head>
+
+<body>
+	<div align="centre">
+	<p> <strong style="color: red">Instructions to give Input </strong></p>
+	<p>Number of variables is positive integer greater than 1</p>
+	<p>Variable names should be separated by comma(,) and don't put any space in between </p>
+	<p>Lower bounds should be separated by comma(,) and don't put any space in between </p>
+	<p> For optimization and constraints, use +,-,*,=,>,<  eg: to input 2x+3y give it as 2*x+3*y</p>
+	</div>
+
+<!-- <form action="/simplexCalculate/" 
+
+			style="display: inline;" 
+			method="post">
+			
+			{% csrf_token %}
+
+
+			<h4> Number of variables</h4>
+			<input  type="Number" name="no_var" style="width: 50px;">
+
+			<h4>Variable Names</h4>
+			<input  type="text" name="var_names" style="width: 100px;">
+
+			<h4> Variable Lower Bounds</h4>
+			<input  type="text" name="var_bounds" style="width: 100px;">
+
+			<h4> Objective Function</h4>
+			<input  type="text" name="obj_fn" style="width: 300px;">
+
+			<h4> Constraints </h4>
+			<input  type="text" name="constraints" style="width: 300px;">
+
+			<h4>Problem Type <h4>
+			<select name="p_type">
+  				<option value="maximize">Maximize</option>
+  				<option value="minimize">Minimize</option>
+			</select>
+
+
+			
+
+	
+	<input type="submit" value="Answer"/>
+</form>
+<br>
+<br> -->
+	
+
+	
+	<div class="container">
+  <form action="/simplexCalculate/" 
+
+			style="display: inline;" 
+			method="post">
+			
+			{% csrf_token %}
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Number of Variables</label>
+      </div>
+      <div class="col-75">
+        <input type="Number" id="fname" name="no_var" placeholder="Number of Variables....">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Names of the Variables</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="var_names" placeholder="Names of the Variables seperated by comma(,)...">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Lower bounds of variables</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="var_bounds" placeholder="lower bounds seperated by comma(,)...">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Objective Function</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="obj_fn" placeholder="Objective Function...">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Constraints</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="constraints" placeholder="Constraints seperated by comma(,)...">
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Problem Type</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="p_type">
+          <option value="maximize">MAXIMIZE</option>
+          <option value="minimize">MINIMIZE</option>
+          
+        </select>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-25">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div> -->
+    <br>
+    <br>
+    <div class="row">
+      <input type="submit" value="Get Answer">
+    </div>
+  </form>
+</div>
+
+
+
+
+
+{% if error %}
+
+<!-- <h3>{{ error }} </h3> -->
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong> {{ error }} </strong>
+</div>
+
+
+{% endif %}
+
+</body>

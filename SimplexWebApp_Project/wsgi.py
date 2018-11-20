@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'editdojo_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SimplexWebApp_Project.settings')
 
 application = get_wsgi_application()
+
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <style type="text/css">
+       
+       h6 {
+    color: rgb(44, 20, 199);
+    
+    text-transform: none;
+    text-align: center;
+
+    text-indent: 50px;
+    /*text-align: justify;*/
+    letter-spacing: 3px;
+    font-size: 16px;
+        }
+
+        h4 {
+    color: green;
+    
+    text-transform: none;
+    text-align: center;
+
+
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+
+    
+        }
+
+        body{
+
+            background-color: rgb(217, 206, 216);
+        }
+
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  h4 {
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  h4{
+    font-size: 30px;
+  }
+
+
+
+
+
+  
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+{% block content %}
+
+        <!-- <h4> {{ problem }} </h4> -->
+        
+        {% for line in problem %}
+                <h6> {{line}}  </h6>
+        {% endfor %}
+
+
+        <!-- <h4>Status :{{status}} </h4>
+
+        <h4>Optimal Value :{{optimalVal}} </h4>
+
+        {% for sol in solution %}
+
+                <h4> {{ sol.0 }} =  {{sol.1}} </h4>
+        {% endfor %} -->
+
+
+
+
+<table>
+  
+  <tr>
+    <td>Status</td>
+    <td>{{ status }}</td>
+ </tr>
+
+  <tr>
+    <td>Optimal Value</td>
+    <td>{{ optimalVal}}</td>
+    
+  </tr>
+
+  {% for sol in solution %}
+
+                <!-- <h4> {{ sol.0 }} =  {{sol.1}} </h4> -->
+                <tr>
+                    <td>{{ sol.0 }}</td>
+                    <td>{{ sol.1 }}</td>
+    
+                </tr>
+        {% endfor %}
+
+  
+</table>
+
+
+
+{% endblock %}
+</body>
+</html>
